@@ -22,24 +22,71 @@ void TigerActor::Draw(sf::RenderWindow* g) {
 }
 
 void TigerActor::Update(float deltaTime) {
+	float dx = 0;
+	float dy = 0;
 	frame += 0.005*deltaTime;
 	if (frame > 3)
 		frame -= 3;
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-		mSprite.move(0, -0.1*deltaTime);
+	switch(mDirection) {
+	case UP: 
+		dy =  -speed * deltaTime; 
 		mSprite.setTextureRect(sf::IntRect(96 * (int)frame, 288, 96, 96));
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-		mSprite.move(0, 0.1*deltaTime);
+		break;
+	case DOWN: 
+		dy = speed * deltaTime; 
 		mSprite.setTextureRect(sf::IntRect(96 * (int)frame, 0, 96, 96));
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-		mSprite.move(-0.1*deltaTime, 0);
+		break;
+	case LEFT: 
+		dx = -speed * deltaTime; 
 		mSprite.setTextureRect(sf::IntRect(96 * (int)frame, 96, 96, 96));
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+		break;
+	case RIGHT: 
+		dx = speed * deltaTime;
 		mSprite.setTextureRect(sf::IntRect(96 * (int)frame + 96, 96, -96, 96));
-		mSprite.move(0.1*deltaTime, 0);
+		break;
+	}
+	mRect.mX += dx;
+	mRect.mY += dy;
+	
+	//if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+	//	mSprite.move(0, -0.1*deltaTime);
+	//	mSprite.setTextureRect(sf::IntRect(96 * (int)frame, 288, 96, 96));
+	//}
+	//if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+	//	mSprite.move(0, 0.1*deltaTime);
+	//	mSprite.setTextureRect(sf::IntRect(96 * (int)frame, 0, 96, 96));
+	//}
+	//if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+	//	mSprite.move(-0.1*deltaTime, 0);
+	//	mSprite.setTextureRect(sf::IntRect(96 * (int)frame, 96, 96, 96));
+	//}
+	//if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+	//	mSprite.setTextureRect(sf::IntRect(96 * (int)frame + 96, 96, -96, 96));
+	//	mSprite.move(0.1*deltaTime, 0);
+	//}
+	speed = 0;
+	//mSprite.setPosition(mRect.mX, mRect.mY);
+	mSprite.move(dx, dy);
+}
+
+void TigerActor::KeyDown(sf::Keyboard::Key key) {
+	speed = 0.1f;
+	switch (key) {
+	case sf::Keyboard::Up:
+	case sf::Keyboard::W:
+		mDirection = UP;
+		break;
+	case sf::Keyboard::Down:
+	case sf::Keyboard::S:
+		mDirection = DOWN;
+		break;
+	case sf::Keyboard::Left:
+	case sf::Keyboard::A:
+		mDirection = LEFT;
+		break;
+	case sf::Keyboard::Right:
+	case sf::Keyboard::D:
+		mDirection = RIGHT;
+		break;
 	}
 }

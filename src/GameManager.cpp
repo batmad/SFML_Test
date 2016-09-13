@@ -27,6 +27,11 @@ void GameManager::Update(float deltaTime){
 		scenes.top()->Update(deltaTime);
 }
 
+void GameManager::KeyDown(sf::Keyboard::Key key) {
+	if (scenes.top())
+		scenes.top()->KeyDown(key);
+}
+
 void GameManager::Pop() {
 	scenes.pop();
 }

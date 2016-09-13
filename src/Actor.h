@@ -4,10 +4,10 @@ namespace Game {
 	class Actor {
 	public:
 		struct Rect {
-			int mX;
-			int mY;
-			int mWidth;
-			int mHeight;
+			float mX = 0;
+			float mY = 0;
+			int mWidth = 0;
+			int mHeight = 0;
 		};
 		Actor() {};
 		~Actor() {};
@@ -16,8 +16,15 @@ namespace Game {
 		Rect				GetPosition() { return mRect; };		
 
 	protected:
+		enum direction{
+			UP,
+			DOWN,
+			LEFT,
+			RIGHT
+		};
 		sf::Texture			mTexture;
 		sf::Sprite			mSprite;
 		Rect				mRect;
+		direction			mDirection;
 	};
 }

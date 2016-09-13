@@ -8,5 +8,6 @@ namespace Game {
 		~Scene() {};
 		virtual void Draw(sf::RenderWindow*) {};
 		virtual void Update(float deltaTime) {};
+		virtual void KeyDown(sf::Keyboard::Key) {};
 	};
 }

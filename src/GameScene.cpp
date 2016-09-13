@@ -39,3 +39,7 @@ void GameScene::Update(float deltaTime) {
 	tiger->Update(deltaTime);
 
 }
+
+void GameScene::KeyDown(sf::Keyboard::Key key) {
+	tiger->KeyDown(key);
+}

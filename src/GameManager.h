@@ -11,6 +11,7 @@ namespace Game {
 		void Draw(sf::RenderWindow*);
 		void Pop();
 		void Push(Scene*);
+		void KeyDown(sf::Keyboard::Key);
 	private:
 		GameManager() {};
 		GameManager(const GameManager& gm);
