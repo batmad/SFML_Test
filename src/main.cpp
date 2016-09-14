@@ -6,7 +6,7 @@ using namespace Game;
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(640, 480), "SFML works!");
+	sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "SFML works!");
 	sf::CircleShape shape(100.f);
 	shape.setFillColor(sf::Color::Green);
 	sf::Clock clock;
@@ -25,9 +25,6 @@ int main()
 			switch (event.type) {
 			case sf::Event::Closed:
 				window.close();
-				break;
-			case sf::Event::KeyPressed:
-				GameManager::GetInstance()->KeyDown(event.key.code);
 				break;
 			default:
 				break;

@@ -9,7 +9,6 @@ namespace Game {
 		~GameScene();
 		void Draw(sf::RenderWindow*);
 		void Update(float deltaTime);
-		void KeyDown(sf::Keyboard::Key);
 
 	private:
 		const int HEIGHT_MAP = 25;
@@ -44,5 +43,6 @@ namespace Game {
 		TigerActor* tiger;
 		sf::Texture map;
 		sf::Sprite sMap;
+		sf::View view;
 	};
 }

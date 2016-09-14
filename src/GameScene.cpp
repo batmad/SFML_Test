@@ -11,7 +11,7 @@ GameScene::GameScene() {
 	mapImg.loadFromFile("images/map.png");
 
 	map.loadFromImage(mapImg);
-	sMap.setTexture(map);
+	sMap.setTexture(map);	
 }
 
 GameScene::~GameScene() {
@@ -19,6 +19,7 @@ GameScene::~GameScene() {
 }
 
 void GameScene::Draw(sf::RenderWindow* g) {
+	g->setView(view);
 	for (int i = 0; i < HEIGHT_MAP; i++)
 		for (int j = 0; j < WIDTH_MAP; j++)
 		{
@@ -35,11 +36,13 @@ void GameScene::Draw(sf::RenderWindow* g) {
 }
 
 void GameScene::Update(float deltaTime) {
-
+	view.reset(sf::FloatRect(0, 0, 640, 480));
 	tiger->Update(deltaTime);
-
-}
-
-void GameScene::KeyDown(sf::Keyboard::Key key) {
-	tiger->KeyDown(key);
+	int dx = (tiger->GetRect().mX > 320) ? tiger->GetRect().mX : 320;
+	int dy = tiger->GetRect().mY;
+	if (tiger->GetRect().mY < 240)
+		dy = 240;
+	if (tiger->GetRect().mY > 554)
+		dy = 554;
+	view.setCenter(dx, dy);
 }

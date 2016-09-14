@@ -1,5 +1,6 @@
 #include "GameManager.h"
 
+
 using namespace Game;
 GameManager* GameManager::gInstance = 0;
 
@@ -25,11 +26,6 @@ void GameManager::Draw(sf::RenderWindow* g){
 void GameManager::Update(float deltaTime){
 	if (scenes.top())
 		scenes.top()->Update(deltaTime);
-}
-
-void GameManager::KeyDown(sf::Keyboard::Key key) {
-	if (scenes.top())
-		scenes.top()->KeyDown(key);
 }
 
 void GameManager::Pop() {

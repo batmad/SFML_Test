@@ -2,6 +2,8 @@
 #include <stack>
 #include <SFML/Graphics.hpp>
 #include "Scene.h"
+#define WIDTH  640
+#define HEIGHT 480
 
 namespace Game {
 	class GameManager {
@@ -11,7 +13,6 @@ namespace Game {
 		void Draw(sf::RenderWindow*);
 		void Pop();
 		void Push(Scene*);
-		void KeyDown(sf::Keyboard::Key);
 	private:
 		GameManager() {};
 		GameManager(const GameManager& gm);

@@ -13,7 +13,7 @@ namespace Game {
 		~Actor() {};
 		virtual void		Draw(sf::RenderWindow*) {};
 		virtual void		Update(float) {};		
-		Rect				GetPosition() { return mRect; };		
+		Rect				GetRect() { return mRect; };		
 
 	protected:
 		enum direction{

@@ -1,13 +1,12 @@
 #pragma once
 #include "Actor.h"
 namespace Game {
-	class TigerActor : Actor {
+	class TigerActor : public Actor {
 	public:
 		TigerActor();
 		~TigerActor();
 		void Draw(sf::RenderWindow*);
 		void Update(float delta);
-		void KeyDown(sf::Keyboard::Key);
 
 	private:
 		float frame;
