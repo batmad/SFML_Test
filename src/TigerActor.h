@@ -7,6 +7,7 @@ namespace Game {
 		~TigerActor();
 		void Draw(sf::RenderWindow*);
 		void Update(float delta);
+		
 
 	private:
 		float frame;

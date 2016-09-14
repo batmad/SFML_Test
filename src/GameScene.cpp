@@ -38,11 +38,29 @@ void GameScene::Draw(sf::RenderWindow* g) {
 void GameScene::Update(float deltaTime) {
 	view.reset(sf::FloatRect(0, 0, 640, 480));
 	tiger->Update(deltaTime);
-	int dx = (tiger->GetRect().mX > 320) ? tiger->GetRect().mX : 320;
-	int dy = tiger->GetRect().mY;
-	if (tiger->GetRect().mY < 240)
+	int dx = (tiger->mRect.mX > 320) ? tiger->mRect.mX : 320;
+	int dy = tiger->mRect.mY;
+	if (tiger->mRect.mY < 240)
 		dy = 240;
-	if (tiger->GetRect().mY > 554)
+	if (tiger->mRect.mY > 554)
 		dy = 554;
 	view.setCenter(dx, dy);
+	InteractMap();
+}
+
+void GameScene::InteractMap() {
+
+	for (int i = tiger->mRect.mY / 32; i < (tiger->mRect.mY + tiger->mRect.mHeight) / 32; i++)
+		for (int j = tiger->mRect.mX / 32; j<(tiger->mRect.mX + tiger->mRect.mWidth) / 32; j++)
+		{
+			if (TileMap[i][j] == '0')
+			{
+
+			}
+			if (TileMap[i][j] == 's') { 
+				tiger->mRect.mX = 300; 
+				tiger->mRect.mY = 300;
+				TileMap[i][j] = ' ';
+			}
+		}
 }

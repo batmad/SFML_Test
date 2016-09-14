@@ -13,8 +13,7 @@ namespace Game {
 		~Actor() {};
 		virtual void		Draw(sf::RenderWindow*) {};
 		virtual void		Update(float) {};		
-		Rect				GetRect() { return mRect; };		
-
+		Rect				mRect;
 	protected:
 		enum direction{
 			UP,
@@ -24,7 +23,6 @@ namespace Game {
 		};
 		sf::Texture			mTexture;
 		sf::Sprite			mSprite;
-		Rect				mRect;
 		direction			mDirection;
 	};
 }

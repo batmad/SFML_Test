@@ -9,6 +9,7 @@ namespace Game {
 		~GameScene();
 		void Draw(sf::RenderWindow*);
 		void Update(float deltaTime);
+		void InteractMap();
 
 	private:
 		const int HEIGHT_MAP = 25;

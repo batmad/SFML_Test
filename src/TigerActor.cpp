@@ -12,6 +12,8 @@ TigerActor::TigerActor() {
 	mSprite.setPosition(50, 25);
 	frame = 0;
 	speed = 0.1;
+	mRect.mWidth = 96;
+	mRect.mHeight = 96;
 }
 
 TigerActor::~TigerActor() {
@@ -50,3 +52,4 @@ void TigerActor::Update(float deltaTime) {
 
 	mSprite.setPosition(mRect.mX, mRect.mY);
 }
+
