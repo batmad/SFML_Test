@@ -1,6 +1,7 @@
 #include "GameScene.h"
 #include "TigerActor.h"
-
+#include "TextManager.h"
+#include "MakeString.h"
 
 using namespace Game;
 
@@ -8,10 +9,13 @@ GameScene::GameScene() {
 	tiger = new TigerActor();
 	
 	sf::Image mapImg;
-	mapImg.loadFromFile("images/map.png");
+	mapImg.loadFromFile("res/images/map.png");
 
 	map.loadFromImage(mapImg);
 	sMap.setTexture(map);	
+
+	scoreStr = TextManager::GetInstance()->GetText("Набрано очков:");
+	scoreStr.setPosition(0,0);
 }
 
 GameScene::~GameScene() {
@@ -33,6 +37,7 @@ void GameScene::Draw(sf::RenderWindow* g) {
 			g->draw(sMap);//рисуем квадратики на экран
 		}
 	tiger->Draw(g);
+	g->draw(scoreStr);
 }
 
 void GameScene::Update(float deltaTime) {
@@ -45,22 +50,29 @@ void GameScene::Update(float deltaTime) {
 	if (tiger->mRect.mY > 554)
 		dy = 554;
 	view.setCenter(dx, dy);
+	scoreStr.setPosition(view.getCenter());
 	InteractMap();
 }
 
 void GameScene::InteractMap() {
-
-	for (int i = tiger->mRect.mY / 32; i < (tiger->mRect.mY + tiger->mRect.mHeight) / 32; i++)
-		for (int j = tiger->mRect.mX / 32; j<(tiger->mRect.mX + tiger->mRect.mWidth) / 32; j++)
-		{
-			if (TileMap[i][j] == '0')
-			{
-
+	for (int i = tiger->mRect.mY / 32; i < (tiger->mRect.mY + tiger->mRect.mHeight) / 32; i++) {
+		for (int j = tiger->mRect.mX / 32; j < (tiger->mRect.mX + tiger->mRect.mWidth) / 32; j++){
+			if (TileMap[i][j] == '0'){
+				if (tiger->mRect.mX < 0)
+					tiger->mRect.mX = 0;
+				if (tiger->mRect.mY < 0)
+					tiger->mRect.mY = 0;
+				if (i == HEIGHT_MAP - 1)
+					tiger->mRect.mY = i * 32 - tiger->mRect.mHeight;
+				if (j == WIDTH_MAP - 1)
+					tiger->mRect.mX = j * 32 - tiger->mRect.mWidth;
 			}
-			if (TileMap[i][j] == 's') { 
-				tiger->mRect.mX = 300; 
-				tiger->mRect.mY = 300;
+			if (TileMap[i][j] == 's') {
 				TileMap[i][j] = ' ';
+				score++;
+				sf::String tString(MakeString() << "Набрано очков:" << score);
+				scoreStr.setString(tString);
 			}
 		}
+	}
 }

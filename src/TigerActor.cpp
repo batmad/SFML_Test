@@ -3,7 +3,7 @@ using namespace Game;
 
 TigerActor::TigerActor() {
 	sf::Image heroImage;
-	heroImage.loadFromFile("images/hero.png");
+	heroImage.loadFromFile("res/images/hero.png");
 
 	mTexture.loadFromImage(heroImage);
 

@@ -36,6 +36,12 @@
     <ClInclude Include="..\src\Actor.h">
       <Filter>Файлы исходного кода\Actors</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\TextManager.h">
+      <Filter>Файлы исходного кода</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MakeString.h">
+      <Filter>Файлы исходного кода</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\GameManager.cpp">
@@ -49,6 +55,9 @@
     </ClCompile>
     <ClCompile Include="..\src\TigerActor.cpp">
       <Filter>Файлы исходного кода\Actors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TextManager.cpp">
+      <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -133,13 +133,16 @@
     <ClInclude Include="..\src\Actor.h" />
     <ClInclude Include="..\src\GameManager.h" />
     <ClInclude Include="..\src\GameScene.h" />
+    <ClInclude Include="..\src\MakeString.h" />
     <ClInclude Include="..\src\Scene.h" />
+    <ClInclude Include="..\src\TextManager.h" />
     <ClInclude Include="..\src\TigerActor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\GameManager.cpp" />
     <ClCompile Include="..\src\GameScene.cpp" />
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\TextManager.cpp" />
     <ClCompile Include="..\src\TigerActor.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
