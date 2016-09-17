@@ -131,16 +131,23 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Actor.h" />
+    <ClInclude Include="..\src\Ball.h" />
     <ClInclude Include="..\src\GameManager.h" />
     <ClInclude Include="..\src\GameScene.h" />
+    <ClInclude Include="..\src\JsonManager.h" />
+    <ClInclude Include="..\src\json\json-forwards.h" />
+    <ClInclude Include="..\src\json\json.h" />
     <ClInclude Include="..\src\MakeString.h" />
     <ClInclude Include="..\src\Scene.h" />
     <ClInclude Include="..\src\TextManager.h" />
     <ClInclude Include="..\src\TigerActor.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\Ball.cpp" />
     <ClCompile Include="..\src\GameManager.cpp" />
     <ClCompile Include="..\src\GameScene.cpp" />
+    <ClCompile Include="..\src\jsoncpp.cpp" />
+    <ClCompile Include="..\src\JsonManager.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\TextManager.cpp" />
     <ClCompile Include="..\src\TigerActor.cpp" />
