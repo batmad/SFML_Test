@@ -2,8 +2,7 @@
 #include <stack>
 #include <SFML/Graphics.hpp>
 #include "Scene.h"
-#define WIDTH  640
-#define HEIGHT 480
+#include "Constants.h"
 
 namespace Game {
 	class GameManager {

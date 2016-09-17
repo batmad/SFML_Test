@@ -9,5 +9,10 @@ namespace Game {
 			~Ball();
 			void Draw(sf::RenderWindow*);
 			void Update(float delta);
+	private:
+		float speedY;
+		float speedX;
+		int directionX;
+		int directionY;
 	};
 }
