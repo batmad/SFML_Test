@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClInclude Include="..\src\Actor.h" />
     <ClInclude Include="..\src\Ball.h" />
+    <ClInclude Include="..\src\Bat.h" />
     <ClInclude Include="..\src\Brick.h" />
     <ClInclude Include="..\src\BrickManager.h" />
     <ClInclude Include="..\src\Constants.h" />
@@ -147,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Ball.cpp" />
+    <ClCompile Include="..\src\Bat.cpp" />
     <ClCompile Include="..\src\Brick.cpp" />
     <ClCompile Include="..\src\BrickManager.cpp" />
     <ClCompile Include="..\src\GameManager.cpp" />

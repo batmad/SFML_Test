@@ -46,13 +46,6 @@ void Brick::Update(float delta) {
 	mSprite.setPosition(mRect.mX, mRect.mY);
 }
 
-bool Brick::Intersect(Rect rect) {
-	return !((rect.mX + rect.mWidth < mRect.mX) ||
-		(rect.mX > mRect.mX + mRect.mWidth) ||
-		(rect.mY + rect.mHeight < mRect.mY) ||
-		(rect.mY > mRect.mY + mRect.mHeight));	
-}
-
 void Brick::SetDead() {
 	isDead = true;
 }

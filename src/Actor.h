@@ -12,7 +12,14 @@ namespace Game {
 		Actor() {};
 		~Actor() {};
 		virtual void		Draw(sf::RenderWindow*) {};
-		virtual void		Update(float) {};		
+		virtual void		Update(float) {};
+		bool				Intersect(Rect rect) {
+								return !((rect.mX + rect.mWidth < mRect.mX) ||
+										(rect.mX > mRect.mX + mRect.mWidth) ||
+										(rect.mY + rect.mHeight < mRect.mY) ||
+										(rect.mY > mRect.mY + mRect.mHeight));
+							}
+
 		Rect				mRect;
 	protected:
 		enum direction{

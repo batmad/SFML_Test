@@ -1,8 +1,9 @@
 #pragma once
+#include "JsonManager.h"
 #include "Scene.h"
 #include "Ball.h"
 #include "BrickManager.h"
-#include "JsonManager.h"
+#include "Bat.h"
 
 namespace Game {
 	class GameScene : public Scene {
@@ -15,6 +16,7 @@ namespace Game {
 
 	private:
 		Ball* ball;
+		Bat* bat;
 		BrickManager* brickManager;
 		sf::Texture map;
 		sf::Sprite sMap;

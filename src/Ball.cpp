@@ -34,11 +34,14 @@ void Ball::Draw(sf::RenderWindow* g) {
 void Ball::Update(float delta) {
 	mRect.mX += speedX * directionX * delta;
 	mRect.mY += speedY * directionY * delta;
-	if (mRect.mX + mTexture.getSize().x > WIDTH || mRect.mX < 0) {
+	if (mRect.mX + mRect.mWidth > WIDTH || mRect.mX < 0) {
 		ChangeDirection(X);
 	}
-	if (mRect.mY + mTexture.getSize().y > HEIGHT || mRect.mY < 0) {
+	if (mRect.mY + mRect.mHeight < 0) {
 		ChangeDirection(Y);
+	}
+	if (mRect.mY > HEIGHT) {
+		Die();
 	}
 	mSprite.setPosition(mRect.mX , mRect.mY);
 }
@@ -56,4 +59,16 @@ void Ball::ChangeDirection(int direction) {
 		directionY = -directionY;
 		break;
 	}
+}
+
+void Ball::CheckIntersect(Rect rect) {
+	if (Intersect(rect)) {
+		ChangeDirection(Y);
+	}
+}
+
+void Ball::Die() {
+	mRect.mX = WIDTH / 2;
+	mRect.mY = HEIGHT / 2;
+	mSprite.setPosition(mRect.mX, mRect.mY);
 }

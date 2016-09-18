@@ -8,6 +8,7 @@ using namespace Game;
 
 GameScene::GameScene() {	
 	ball = new Ball();
+	bat = new Bat();
 	brickManager = new BrickManager();
 
 	sf::Image mapImg;
@@ -24,20 +25,26 @@ GameScene::GameScene() {
 
 GameScene::~GameScene() {
 	delete ball;
+	delete bat;
 	delete brickManager;
 }
 
 void GameScene::Draw(sf::RenderWindow* g) {
 	g->draw(sMap);
 	ball->Draw(g);
+	bat->Draw(g);
 	brickManager->Draw(g);
 	g->draw(scoreStr);
 }
 
 void GameScene::Update(float deltaTime) {
 	ball->Update(deltaTime);
+	bat->Update(deltaTime);
 	brickManager->Update(deltaTime);
+
+	ball->CheckIntersect(bat->mRect);
 	score += brickManager->CheckIntersect(ball);
+
 	scoreStr.setPosition(0,0);
 	sf::String tString(MakeString() << "Набрано очков:" << score);
 	scoreStr.setString(tString);

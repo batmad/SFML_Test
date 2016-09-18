@@ -8,7 +8,6 @@ namespace Game {
 		~Brick();
 		void Draw(sf::RenderWindow*);
 		void Update(float);
-		bool Intersect(Rect);
 		bool IsDead() { return deadAnimEnded; };
 		void SetDead();
 	private:
