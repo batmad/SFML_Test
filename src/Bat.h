@@ -8,6 +8,7 @@ namespace Game {
 		void Draw(sf::RenderWindow*);
 		void Update(float);
 	private:
+		sf::Vector2i mousePosition;
 		float speed;
 	};
 }
