@@ -9,5 +9,16 @@ namespace Game {
 		void Draw(sf::RenderWindow*);
 		void Update(float);
 		bool Intersect(Rect);
+		bool IsDead() { return deadAnimEnded; };
+		void SetDead();
+	private:
+		enum {
+			UP,
+			DOWN
+		};
+		bool isDead;
+		bool deadAnimEnded;
+		int deadState;
+		float scale;
 	};
 }

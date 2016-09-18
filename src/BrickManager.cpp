@@ -19,8 +19,8 @@ BrickManager::~BrickManager() {
 void BrickManager::CreateBricks(int num) {
 	for (int i = 0; i < num; ++i) {
 		Brick* tBrick = new Brick();
-		int origin_x = 20;
-		int origin_y = 20;
+		int origin_x = 40;
+		int origin_y = 40;
 		int offset_x = 5;
 		int offset_y = 10;
 		int numPerWidth = (WIDTH - origin_x) / (tBrick->mRect.mWidth + offset_x);
@@ -34,11 +34,25 @@ void BrickManager::Draw(sf::RenderWindow* g) {
 	for (auto it = bricks.begin(); it != bricks.end(); ++it) {
 		(*it)->Draw(g);
 	}
+	for (auto it = dead_bricks.begin(); it != dead_bricks.end(); ++it) {
+		(*it)->Draw(g);
+	}
 }
 
 void BrickManager::Update(float delta) {
 	for (auto it = bricks.begin(); it != bricks.end(); ++it) {
 		(*it)->Update(delta);
+	}
+	for (auto it = dead_bricks.begin(); it != dead_bricks.end(); ) {
+		if ((*it)->IsDead()) {
+			delete (*it);
+			dead_bricks.erase(it);
+			break;
+		}
+		else {
+			(*it)->Update(delta);
+			++it;
+		}
 	}
 }
 
@@ -46,6 +60,8 @@ int BrickManager::CheckIntersect(Ball* ball) {
 	int score = 0;
 	for (auto it = bricks.begin(); it != bricks.end();) {
 		if ((*it)->Intersect(ball->mRect)) {
+			(*it)->SetDead();
+			dead_bricks.push_back(*it);
 			bricks.erase(it);
 			ball->ChangeDirection(Ball::Y);
 			return ++score;

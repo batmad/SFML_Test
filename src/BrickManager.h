@@ -13,5 +13,6 @@ namespace Game {
 		int CheckIntersect(Ball*);
 	private:
 		std::vector<Brick*> bricks;
+		std::vector<Brick*> dead_bricks;
 	};
 }
