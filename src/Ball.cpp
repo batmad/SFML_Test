@@ -10,10 +10,12 @@ Ball::Ball() {
 	image.createMaskFromColor(sf::Color::White);
 	mTexture.loadFromImage(image);
 	mSprite.setTexture(mTexture);
-	//mSprite.setOrigin(mTexture.getSize().x /2,mTexture.getSize().y / 2);
-	mSprite.setRotation(45);
-	mRect.mX = 0;
-	mRect.mY = 0;
+
+	mRect.mX = WIDTH / 2;
+	mRect.mY = HEIGHT / 2;
+	mRect.mWidth = mTexture.getSize().x;
+	mRect.mHeight = mTexture.getSize().y;
+
 	speedY = 0.06;
 	speedX = 0.06;
 	directionX = 1;
@@ -25,12 +27,8 @@ Ball::~Ball() {
 
 }
 
-void Ball::Draw(sf::RenderWindow* g) {
+void Ball::Draw(sf::RenderWindow* g) {	
 	g->draw(mSprite);
-	sf::RectangleShape tShape;
-	tShape.setSize(sf::Vector2f(mSprite.getGlobalBounds().width,mSprite.getGlobalBounds().height));
-	tShape.setPosition(mSprite.getPosition());
-	g->draw(tShape);
 }
 
 void Ball::Update(float delta) {
@@ -40,13 +38,11 @@ void Ball::Update(float delta) {
 		speedX = static_cast<float>(rand() % 400 + 600) / 10000;
 		speedY = static_cast<float>(rand() % 400 + 600) / 10000;
 		directionX = -directionX;
-		mSprite.rotate(12);
 	}
 	if (mRect.mY + mTexture.getSize().y > HEIGHT || mRect.mY < 0) {
 		speedY = static_cast<float>(rand() % 400 + 600) / 10000;
 		speedX = static_cast<float>(rand() % 400 + 600) / 10000;
 		directionY = -directionY;
-		mSprite.rotate(12);
 	}
 	mSprite.setPosition(mRect.mX , mRect.mY);
 }

@@ -57,6 +57,12 @@
     <ClInclude Include="..\src\Constants.h">
       <Filter>Файлы исходного кода</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\Brick.h">
+      <Filter>Файлы исходного кода\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\BrickManager.h">
+      <Filter>Файлы исходного кода\Actors</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\GameManager.cpp">
@@ -82,6 +88,12 @@
     </ClCompile>
     <ClCompile Include="..\src\JsonManager.cpp">
       <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Brick.cpp">
+      <Filter>Файлы исходного кода\Actors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\BrickManager.cpp">
+      <Filter>Файлы исходного кода\Actors</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

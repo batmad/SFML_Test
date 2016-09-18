@@ -1,6 +1,7 @@
 #pragma once
 #include "Scene.h"
 #include "Ball.h"
+#include "BrickManager.h"
 #include "JsonManager.h"
 
 namespace Game {
@@ -14,6 +15,7 @@ namespace Game {
 
 	private:
 		Ball* ball;
+		BrickManager* brickManager;
 		sf::Texture map;
 		sf::Sprite sMap;
 		sf::Text scoreStr;
