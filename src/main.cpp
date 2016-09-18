@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "GameManager.h"
-#include "GameScene.h"
+#include "MenuScene.h"
 
 using namespace Game;
 
@@ -11,9 +11,9 @@ int main()
 	shape.setFillColor(sf::Color::Green);
 	sf::Clock clock;
 	
-	Scene* gameScene = new GameScene();
+	Scene* menuScene = new MenuScene();
 	int a = 0;
-	GameManager::GetInstance()->Push(gameScene);
+	GameManager::GetInstance()->Push(menuScene);
 	while (window.isOpen())
 	{
 		float time = clock.getElapsedTime().asMicroseconds();

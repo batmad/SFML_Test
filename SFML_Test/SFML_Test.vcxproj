@@ -142,6 +142,7 @@
     <ClInclude Include="..\src\json\json-forwards.h" />
     <ClInclude Include="..\src\json\json.h" />
     <ClInclude Include="..\src\MakeString.h" />
+    <ClInclude Include="..\src\MenuScene.h" />
     <ClInclude Include="..\src\Scene.h" />
     <ClInclude Include="..\src\TextManager.h" />
     <ClInclude Include="..\src\TigerActor.h" />
@@ -156,6 +157,7 @@
     <ClCompile Include="..\src\jsoncpp.cpp" />
     <ClCompile Include="..\src\JsonManager.cpp" />
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\MenuScene.cpp" />
     <ClCompile Include="..\src\TextManager.cpp" />
     <ClCompile Include="..\src\TigerActor.cpp" />
   </ItemGroup>

@@ -28,7 +28,9 @@ void Bat::Draw(sf::RenderWindow* g) {
 }
 
 void Bat::Update(float delta) {
-	mRect.mX = mousePosition.x - mRect.mWidth / 2;
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+		mRect.mX = mousePosition.x - mRect.mWidth / 2;
+	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
 		mRect.mX += -speed * delta;

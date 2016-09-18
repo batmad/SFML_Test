@@ -66,6 +66,9 @@
     <ClInclude Include="..\src\Bat.h">
       <Filter>Файлы исходного кода\Actors</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\MenuScene.h">
+      <Filter>Файлы исходного кода\Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\GameManager.cpp">
@@ -100,6 +103,9 @@
     </ClCompile>
     <ClCompile Include="..\src\Bat.cpp">
       <Filter>Файлы исходного кода\Actors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MenuScene.cpp">
+      <Filter>Файлы исходного кода\Scenes</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
