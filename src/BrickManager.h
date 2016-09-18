@@ -1,5 +1,6 @@
 #pragma once
 #include "Brick.h"
+#include "Ball.h"
 
 namespace Game {
 	class BrickManager {
@@ -9,7 +10,7 @@ namespace Game {
 		void Draw(sf::RenderWindow* g);
 		void Update(float delta);
 		void CreateBricks(int);
-		bool CheckIntersect(Actor::Rect);
+		int CheckIntersect(Ball*);
 	private:
 		std::vector<Brick*> bricks;
 	};

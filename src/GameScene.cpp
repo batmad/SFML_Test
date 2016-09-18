@@ -37,9 +37,8 @@ void GameScene::Draw(sf::RenderWindow* g) {
 void GameScene::Update(float deltaTime) {
 	ball->Update(deltaTime);
 	brickManager->Update(deltaTime);
-	brickManager->CheckIntersect(ball->mRect);
+	score += brickManager->CheckIntersect(ball);
 	scoreStr.setPosition(0,0);
-	score++;
 	sf::String tString(MakeString() << "Набрано очков:" << score);
 	scoreStr.setString(tString);
 }

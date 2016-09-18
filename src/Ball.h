@@ -5,10 +5,15 @@
 namespace Game {
 	class Ball : public Actor {
 		public:
+			enum {
+				X,
+				Y
+			};
 			Ball();
 			~Ball();
 			void Draw(sf::RenderWindow*);
 			void Update(float delta);
+			void ChangeDirection(int);
 	private:
 		float speedY;
 		float speedX;

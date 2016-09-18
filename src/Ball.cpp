@@ -35,14 +35,25 @@ void Ball::Update(float delta) {
 	mRect.mX += speedX * directionX * delta;
 	mRect.mY += speedY * directionY * delta;
 	if (mRect.mX + mTexture.getSize().x > WIDTH || mRect.mX < 0) {
+		ChangeDirection(X);
+	}
+	if (mRect.mY + mTexture.getSize().y > HEIGHT || mRect.mY < 0) {
+		ChangeDirection(Y);
+	}
+	mSprite.setPosition(mRect.mX , mRect.mY);
+}
+
+void Ball::ChangeDirection(int direction) {
+	switch (direction) {
+	case X:
 		speedX = static_cast<float>(rand() % 400 + 600) / 10000;
 		speedY = static_cast<float>(rand() % 400 + 600) / 10000;
 		directionX = -directionX;
-	}
-	if (mRect.mY + mTexture.getSize().y > HEIGHT || mRect.mY < 0) {
+		break;
+	case Y:
 		speedY = static_cast<float>(rand() % 400 + 600) / 10000;
 		speedX = static_cast<float>(rand() % 400 + 600) / 10000;
 		directionY = -directionY;
+		break;
 	}
-	mSprite.setPosition(mRect.mX , mRect.mY);
 }

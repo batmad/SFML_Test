@@ -42,16 +42,17 @@ void BrickManager::Update(float delta) {
 	}
 }
 
-bool BrickManager::CheckIntersect(Actor::Rect rect) {
+int BrickManager::CheckIntersect(Ball* ball) {
+	int score = 0;
 	for (auto it = bricks.begin(); it != bricks.end();) {
-		if ((*it)->Intersect(rect)) {
+		if ((*it)->Intersect(ball->mRect)) {
 			bricks.erase(it);
-			return true;
+			ball->ChangeDirection(Ball::Y);
+			return ++score;
 		}
 		else {
 			++it;
 		}
-
 	}
-	return false;
+	return score;
 }
