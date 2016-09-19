@@ -38,6 +38,16 @@ void GameManager::Push(Scene* scene) {
 	scenes.push(scene);
 }
 
+void GameManager::MouseUp(int x, int y) {
+	if (scenes.top())
+		scenes.top()->MouseUp(x, y);
+}
+
+void GameManager::MouseDown(int x, int y) {
+	if (scenes.top())
+		scenes.top()->MouseDown(x, y);
+}
+
 void GameManager::KillZombie() {
 	if (zombieScene) {
 		delete zombieScene;

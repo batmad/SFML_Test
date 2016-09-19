@@ -12,9 +12,10 @@ namespace Game {
 		~GameScene();
 		void Draw(sf::RenderWindow*);
 		void Update(float deltaTime);
+		void MouseDown(int x, int y);
+		void MouseUp(int x, int y);
 		void Save();
 		void GameOver();
-
 	private:
 		Ball* ball;
 		Bat* bat;

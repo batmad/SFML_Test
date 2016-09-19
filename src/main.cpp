@@ -26,6 +26,16 @@ int main()
 			case sf::Event::Closed:
 				window.close();
 				break;
+			case sf::Event::MouseButtonPressed:
+				if (event.mouseButton.button == sf::Mouse::Button::Left) {
+					GameManager::GetInstance()->MouseDown(event.mouseButton.x, event.mouseButton.y);
+				}
+				break;
+			case sf::Event::MouseButtonReleased:
+				if (event.mouseButton.button == sf::Mouse::Button::Left) {
+					GameManager::GetInstance()->MouseUp(event.mouseButton.x, event.mouseButton.y);
+				}
+				break;
 			default:
 				break;
 			}

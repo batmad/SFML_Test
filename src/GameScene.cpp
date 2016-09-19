@@ -52,10 +52,20 @@ void GameScene::Update(float deltaTime) {
 	scoreStr.setString(tString);
 }
 
+void GameScene::MouseDown(int x, int y) {
+
+}
+
+void GameScene::MouseUp(int x, int y) {
+
+}
+
 void GameScene::Save() {
+	mSettings["Profile"]["Score"] = score;
 	JsonManager::WriteJson(mPath, mSettings);
 }
 
 void GameScene::GameOver() {
+	Save();
 	GameManager::GetInstance()->Pop();
 }

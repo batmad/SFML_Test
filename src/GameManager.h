@@ -12,12 +12,14 @@ namespace Game {
 		void Draw(sf::RenderWindow*);
 		void Pop();
 		void Push(Scene*);
-		void KillZombie();
+		void MouseDown(int x, int y);
+		void MouseUp(int x, int y);
 	private:
 		GameManager() {};
 		GameManager(const GameManager& gm);
 		~GameManager();
 		GameManager& operator=(const GameManager&) {};
+		void KillZombie();
 		static GameManager* gInstance;
 		std::stack<Scene*> scenes;
 		Scene* zombieScene;

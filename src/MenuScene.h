@@ -7,6 +7,8 @@ namespace Game {
 		~MenuScene();
 		void Draw(sf::RenderWindow*);
 		void Update(float deltaTime);
+		void MouseDown(int x, int y);
+		void MouseUp(int x, int y);
 	private:
 		sf::Texture bgTexture;
 		sf::Texture btnTexture;

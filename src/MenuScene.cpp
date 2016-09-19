@@ -31,7 +31,17 @@ void MenuScene::Draw(sf::RenderWindow* g) {
 }
 
 void MenuScene::Update(float delta) {
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && btnSprite.getGlobalBounds().contains(mousePosition) && !gameScenePushed) {
+	//if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && btnSprite.getGlobalBounds().contains(mousePosition) && !gameScenePushed) {
+	//	GameManager::GetInstance()->Push(new GameScene());
+	//}
+}
+
+void MenuScene::MouseDown(int x, int y) {
+
+}
+
+void MenuScene::MouseUp(int x, int y) {
+	if (btnSprite.getGlobalBounds().contains(x,y) && !gameScenePushed) {
 		GameManager::GetInstance()->Push(new GameScene());
 	}
 }
