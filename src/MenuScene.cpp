@@ -11,8 +11,7 @@ MenuScene::MenuScene() {
 	bgSprite.setTexture(bgTexture);
 
 	sf::Image btnImg;
-	btnImg.loadFromFile("res/images/bat.png");
-	btnImg.createMaskFromColor(sf::Color::White);
+	btnImg.loadFromFile("res/images/btn.png");
 	btnTexture.loadFromImage(btnImg);
 	btnSprite.setTexture(btnTexture);
 
@@ -27,7 +26,6 @@ MenuScene::~MenuScene() {
 void MenuScene::Draw(sf::RenderWindow* g) {
 	g->draw(bgSprite);
 	g->draw(btnSprite);
-	mousePosition = static_cast<sf::Vector2f>(sf::Mouse::getPosition(*g));
 }
 
 void MenuScene::Update(float delta) {
@@ -42,6 +40,7 @@ void MenuScene::MouseDown(int x, int y) {
 
 void MenuScene::MouseUp(int x, int y) {
 	if (btnSprite.getGlobalBounds().contains(x,y) && !gameScenePushed) {
+		gameScenePushed = true;
 		GameManager::GetInstance()->Push(new GameScene());
 	}
 }
