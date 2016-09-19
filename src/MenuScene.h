@@ -1,5 +1,7 @@
 #pragma once
 #include "Scene.h"
+#include "Button.h"
+
 namespace Game {
 	class MenuScene : public Scene {
 	public:
@@ -10,11 +12,9 @@ namespace Game {
 		void MouseDown(int x, int y);
 		void MouseUp(int x, int y);
 	private:
+		Button* button;
 		sf::Texture bgTexture;
-		sf::Texture btnTexture;
 		sf::Sprite bgSprite;
-		sf::Sprite btnSprite;
-		sf::Vector2f mousePosition;
 		bool gameScenePushed;
 	};
 }
