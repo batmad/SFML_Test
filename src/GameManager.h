@@ -12,6 +12,7 @@ namespace Game {
 		void Draw(sf::RenderWindow*);
 		void Pop();
 		void Push(Scene*);
+		void KillZombie();
 	private:
 		GameManager() {};
 		GameManager(const GameManager& gm);
@@ -19,5 +20,6 @@ namespace Game {
 		GameManager& operator=(const GameManager&) {};
 		static GameManager* gInstance;
 		std::stack<Scene*> scenes;
+		Scene* zombieScene;
 	};
 }

@@ -1,11 +1,11 @@
 #pragma once
 #include "JsonManager.h"
 #include "Scene.h"
-#include "Ball.h"
 #include "BrickManager.h"
 #include "Bat.h"
 
 namespace Game {
+	class Ball;
 	class GameScene : public Scene {
 	public:
 		GameScene();
@@ -13,6 +13,7 @@ namespace Game {
 		void Draw(sf::RenderWindow*);
 		void Update(float deltaTime);
 		void Save();
+		void GameOver();
 
 	private:
 		Ball* ball;

@@ -2,12 +2,14 @@
 #include "TigerActor.h"
 #include "TextManager.h"
 #include "MakeString.h"
-
+#include "GameManager.h"
+#include "Ball.h"
 
 using namespace Game;
 
 GameScene::GameScene() {	
 	ball = new Ball();
+	ball->SetListener(this);
 	bat = new Bat();
 	brickManager = new BrickManager();
 
@@ -52,4 +54,8 @@ void GameScene::Update(float deltaTime) {
 
 void GameScene::Save() {
 	JsonManager::WriteJson(mPath, mSettings);
+}
+
+void GameScene::GameOver() {
+	GameManager::GetInstance()->Pop();
 }

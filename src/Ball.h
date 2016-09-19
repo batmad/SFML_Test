@@ -3,6 +3,7 @@
 #include "Actor.h"
 
 namespace Game {
+	class GameScene;
 	class Ball : public Actor {
 	public:
 		enum {
@@ -15,10 +16,12 @@ namespace Game {
 		void Update(float delta);
 		void ChangeDirection(int);
 		void CheckIntersect(Rect);
+		void SetListener(GameScene* scene);
 
 	private:
 		void Die();
 
+		GameScene* listener;
 		float speedY;
 		float speedX;
 		int directionX;

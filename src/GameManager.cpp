@@ -26,12 +26,21 @@ void GameManager::Draw(sf::RenderWindow* g){
 void GameManager::Update(float deltaTime){
 	if (scenes.top())
 		scenes.top()->Update(deltaTime);
+	KillZombie();
 }
 
 void GameManager::Pop() {
+	zombieScene = scenes.top();
 	scenes.pop();
 }
 
 void GameManager::Push(Scene* scene) {
 	scenes.push(scene);
+}
+
+void GameManager::KillZombie() {
+	if (zombieScene) {
+		delete zombieScene;
+		zombieScene = nullptr;
+	}
 }

@@ -1,6 +1,7 @@
 #include "Ball.h"
 #include "json\json.h"
 #include "Constants.h"
+#include "GameScene.h"
 
 using namespace Game;
 
@@ -68,7 +69,12 @@ void Ball::CheckIntersect(Rect rect) {
 }
 
 void Ball::Die() {
+	listener->GameOver();
 	mRect.mX = WIDTH / 2;
 	mRect.mY = HEIGHT / 2;
 	mSprite.setPosition(mRect.mX, mRect.mY);
+}
+
+void Ball::SetListener(GameScene* scene) {
+	listener = scene;
 }
