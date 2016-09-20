@@ -23,7 +23,6 @@ GameScene::GameScene() {
 	mSettings = JsonManager::LoadJson(mPath);
 	highscore = mSettings["Profile"]["Highscore"].asInt();
 	scoreText = "Очки:";
-
 	scoreStr		= TextManager::GetInstance()->GetText(scoreText);
 	highscoreStr	= TextManager::GetInstance()->GetText(MakeString() << "Максимум:" << highscore);
 	scoreStr.setPosition(0, 0);

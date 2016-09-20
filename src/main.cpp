@@ -36,6 +36,12 @@ int main()
 					GameManager::GetInstance()->MouseUp(event.mouseButton.x, event.mouseButton.y);
 				}
 				break;
+			case sf::Event::TouchBegan:
+				GameManager::GetInstance()->MouseDown(event.touch.x, event.touch.y);
+				break;
+			case sf::Event::TouchEnded:
+				GameManager::GetInstance()->MouseUp(event.touch.x, event.touch.y);				
+				break;
 			default:
 				break;
 			}
