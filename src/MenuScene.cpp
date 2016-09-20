@@ -10,11 +10,10 @@ MenuScene::MenuScene() {
 	bgImg.loadFromFile("res/images/bg.jpg");
 	bgTexture.loadFromImage(bgImg);
 	bgSprite.setTexture(bgTexture);
-
 	
 	sf::Image btnImg;
 	btnImg.loadFromFile("res/images/btn.png");
-	button = new Button(WIDTH / 2 - btnImg.getSize().x / 2, HEIGHT / 2 - btnImg.getSize().y / 2, btnImg);
+	button = new Button(WIDTH / 2 , HEIGHT / 2, btnImg, "Играть");
 
 	gameScenePushed = false;
 }

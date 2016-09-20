@@ -3,7 +3,7 @@
 namespace Game {
 	class Button {
 	public:
-		Button(int x, int y,sf::Image img);
+		Button(int x, int y,sf::Image img, std::string text);
 		~Button();
 		void Draw(sf::RenderWindow*);
 		void Update(float delta);
@@ -13,6 +13,7 @@ namespace Game {
 	private:
 		sf::Texture mTexture;
 		sf::Sprite mSprite;
+		sf::Text mText;
 		float scale;
 		enum {
 			IDLE,
