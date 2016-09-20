@@ -1,7 +1,8 @@
 {
 	"Profile" : 
 	{
+		"Highscore" : 24,
 		"Score" : 2
 	},
-	"bricks" : 30
+	"bricks" : 45
 }

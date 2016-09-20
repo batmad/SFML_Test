@@ -23,8 +23,11 @@ namespace Game {
 		sf::Texture map;
 		sf::Sprite sMap;
 		sf::Text scoreStr;
+		sf::Text highscoreStr;
 		std::string mPath;
 		Json::Value mSettings;
+		std::string scoreText;
 		int score;
+		int highscore;
 	};
 }

@@ -19,10 +19,16 @@ GameScene::GameScene() {
 	map.loadFromImage(mapImg);
 	sMap.setTexture(map);	
 
-	scoreStr = TextManager::GetInstance()->GetText("Набрано очков:");
-	scoreStr.setPosition(0,0);
 	mPath = "res/balance/settings";
 	mSettings = JsonManager::LoadJson(mPath);
+	highscore = mSettings["Profile"]["Highscore"].asInt();
+	scoreText = "Очки:";
+
+	scoreStr		= TextManager::GetInstance()->GetText(scoreText);
+	highscoreStr	= TextManager::GetInstance()->GetText(MakeString() << "Максимум:" << highscore);
+	scoreStr.setPosition(0, 0);
+	highscoreStr.setPosition(WIDTH - highscoreStr.getLocalBounds().width, 0);
+
 }
 
 GameScene::~GameScene() {
@@ -37,6 +43,7 @@ void GameScene::Draw(sf::RenderWindow* g) {
 	bat->Draw(g);
 	brickManager->Draw(g);
 	g->draw(scoreStr);
+	g->draw(highscoreStr);
 }
 
 void GameScene::Update(float deltaTime) {
@@ -48,7 +55,7 @@ void GameScene::Update(float deltaTime) {
 	score += brickManager->CheckIntersect(ball);
 
 	scoreStr.setPosition(0,0);
-	sf::String tString(MakeString() << "Набрано очков:" << score);
+	sf::String tString(MakeString() << scoreText << score);
 	scoreStr.setString(tString);
 }
 
@@ -61,6 +68,8 @@ void GameScene::MouseUp(int x, int y) {
 }
 
 void GameScene::Save() {
+	if (score > highscore)
+		mSettings["Profile"]["Highscore"] = score;
 	mSettings["Profile"]["Score"] = score;
 	JsonManager::WriteJson(mPath, mSettings);
 }
